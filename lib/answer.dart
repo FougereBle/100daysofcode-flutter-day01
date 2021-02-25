@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
   final Function _answerQuestion;
-  final String _answer;
+  final dynamic _answer;
 
   Answer(this._answer, this._answerQuestion);
 
@@ -11,8 +11,8 @@ class Answer extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: ElevatedButton(
-        child: Text(_answer),
-        onPressed: _answerQuestion,
+        child: Text(_answer['label']),
+        onPressed: () => _answerQuestion(_answer),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.green),
         ),
